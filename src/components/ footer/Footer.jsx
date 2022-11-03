@@ -1,8 +1,11 @@
 import React from 'react'
+import Button from '../Button'
 
 const Footer = () => {
   return (
-    <div>Footer</div>
+    <footer>
+      <Button text="Suscribirse"/>
+    </footer>
   )
 }
 

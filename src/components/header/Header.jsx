@@ -1,11 +1,14 @@
 import React from 'react'
-import Navbar from './Navbar'
+import Main from '../main/Main'
+import Navbar from '../navbar/Navbar'
 
 const Header = () => {
   return (
     <div>
-      <h1>Surf shop</h1>
+      <a href='/'>Surf shop</a>
+
       <Navbar/>
+      <Main  saludo=" Bienvenidos a nuestro shop online 🤙"/>
     </div>
     )
 }

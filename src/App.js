@@ -1,17 +1,40 @@
 
 import './App.css';
 import Header  from "./components/header/Header"
-import Main from './components/main/Main';
 import Footer from './components/ footer/Footer';
 import ItemListContainer from './components/itemListContainer/ItemListContainer';
+import ItemDetailContainer from './components/main/ItemDetailContainer';
+import Textos from './components/Textos';
+import Ejmploapis from './components/Ejmploapis';
+import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import CartWidget from './components/CartWidgets/CartWidget';
 
-const App = () => {
+const App = () => {  
   return (
     <>
-      <Header/>
-      <ItemListContainer saludo=" Bienvenidos a nuestro e-shop online"/>
-      <Main/>
-      <Footer/>
+      <BrowserRouter>
+
+       <Header/>
+
+        <Routes>
+          <Route path="/" element={<ItemListContainer /> }/>
+          <Route path="/detail/:idProd" element={<ItemDetailContainer/>}/>
+          <Route path='/category/:categoryName' element={<ItemListContainer/>}/>
+          {/* <Ejmploapis/> */}
+          {/* <Textos/> */}
+          <Route path='/cart' element={<CartWidget/>}/>
+
+        </Routes>
+
+        
+
+        
+      
+        <Footer/>
+      
+      
+      </BrowserRouter>
+      
       
 
 
