@@ -8,6 +8,7 @@ import Textos from './components/Textos';
 import Ejmploapis from './components/Ejmploapis';
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import CartWidget from './components/CartWidgets/CartWidget';
+import Form from './components/form/Form';
 
 const App = () => {  
   return (
@@ -23,6 +24,7 @@ const App = () => {
           {/* <Ejmploapis/> */}
           {/* <Textos/> */}
           <Route path='/cart' element={<CartWidget/>}/>
+          <Route path='/checkout' element={<Form/>}/>
 
         </Routes>
 

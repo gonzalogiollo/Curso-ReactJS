@@ -25,6 +25,9 @@ const Contador = ({stock, resta, onAdd}) => {
 
     }
 
+    /* para que se ejecute la funcion onAdd hay que agregarle un callback ()=>, sino se ejecuta automaticamente cada vez que recargue la pagina</div>*/
+    //ver que en la linea de agregar al carrio en el onClick, se quito el onAdd y se paso la funcion que es la que tiene el callback dentro.
+    //luego una vez ejecutada, lo que hace es pasar el numero con la funcion a su padre itemDetail quien lo recibe en la funcion onAdd y lo renderiza con el parametro qty (este lo establecemos nosotros y puede ser cualquier palabra) ver en itemDetail
     const agregar = () => {
       onAdd(count);
   };
@@ -32,16 +35,28 @@ const Contador = ({stock, resta, onAdd}) => {
   return (
     <div className='counter'>
         <section>
-          <button className='button' disabled= {count === stock} onClick={sumar}>+</button>
-          <p>{count}</p> 
-          <button className='button' disabled= {count === resta} onClick={restar}>-</button>
-          <button className='button' onClick={reset}>volver a 0</button>
+         <p>{count}</p> 
+          <div>
+            <button  disabled= {count === stock} onClick={sumar}>+</button>
+            <button  disabled= {count === resta} onClick={restar}>-</button>
+            <button  onClick={reset}>volver a 0</button>
+          </div>
+          
         </section>
+       
+          
+        
+        <div>
+          
+         <button className="add" onClick={(agregar)}> 
+           Agregar al carrito
+         </button>
+
+
+        </div>
         
 
-        <button className="add" onClick={agregar}>
-                    Agregar al carrito
-                </button>
+        
     </div>
   )
 }
