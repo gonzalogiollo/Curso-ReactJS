@@ -1,8 +1,11 @@
 //import { useEffect, useState } from "react"
 import React, { useEffect, useState } from "react";
-import { products } from "../../mock/producto";
+//import { products } from "../../mock/producto";
 import ItemList from "../ItemList";
 import { useParams} from 'react-router-dom'
+import PacmanLoader from "react-spinners/PacmanLoader";
+import { getDocs, query, where } from "firebase/firestore";
+import { collectionProd } from '../../Services/firebaseConfig';
 const ItemListContainer = () => {
   // const [count, setCount] = useState(0);
   // const [texto, SetTexto] = useState ('carla');
@@ -37,42 +40,84 @@ const ItemListContainer = () => {
   //  console.log(valor.categoryName)
     
   const {categoryName} = useParams();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() =>{
 
     
 
-    const getProducts = () => {
+    // const getProducts = () => {
 
-      return new Promise ((res) => {
+    //   return new Promise ((res) => {
 
-        const prodFiltrados = products.filter((prod) => prod.category === categoryName);
-        const ref= categoryName ? prodFiltrados : products;
-        setTimeout(()=>{
+    //     const prodFiltrados = products.filter((prod) => prod.category === categoryName);
+    //     const ref= categoryName ? prodFiltrados : products;
+    //     setTimeout(()=>{
 
-          res(ref);
+    //       res(ref);
 
-        }, 500);
+    //     }, 500);
         
-      });
+    //   });
       
       
-    };
+    // };
+
+    
+    //const q = query (collectionProd, where('category', '==', 'categoryName'));
+    const ref = categoryName ? query(collectionProd, where('category', '==', categoryName)) : collectionProd
+
+    getDocs(ref)
+    .then((res) => {
+        //console.log(res.docs);
+        const products = res.docs.map((prod) => {
+            //console.log(prod);
+            //console.log(prod.data());
+            return {
+                id: prod.id,
+                ...prod.data(),
+            };
+        });
+        setItems(products);
+    })
+    .catch((error) => {
+        console.log(error);
+    })
+    .finally(() => {
+        setLoading(false);
+    });
   
   
-    getProducts()
-     .then((res) =>{
-      //console.log ('res', res);
-      setItems(res);
+    // se comenta el getProducts porque lo  vamos a usar con firebase
+    // getProducts()
+    //  .then((res) =>{
+    //   //console.log ('res', res);
+    //   setItems(res);
   
-     })
-      .catch((error)=>{
-      console.log('rej',error);
-      });
+    //  })
+    //   .catch((error)=>{
+    //   console.log('rej',error);
+    //   })
+    //   .finally(()=> {
+    //     setLoading (false); 
+    //   })
+
+      return () => setLoading(true); //este return siempre va ser renderizado antes que el codigo del user effect, luego viene la logica y los returns externos, entonces cada vez que cambiemos entre las categorias va mostrar el cargando
+      
 
   },[categoryName]);
   
+  
+  if (loading) {
 
+    return(
+      <div className="container">
+      <PacmanLoader size={30}/>
+
+    </div>
+    )
+    
+  }
 
 
 

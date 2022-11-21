@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState } from 'react';
 
-const Contador = ({stock, resta, onAdd}) => {
+const Contador = ({stock, resta, onAdd, initial = 1}) => {
 
-    const [count, setCount] = useState(0)
+    const [count, setCount] = useState(initial)
     //let x = 0;
     const sumar = () => {
         //se paso la cantidad de stock por prop y se hace la validacion para no seguir sumando mas de 10 productos

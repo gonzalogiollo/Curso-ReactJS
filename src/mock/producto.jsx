@@ -1,6 +1,6 @@
 export const products = [
     {
-      id: 1,
+      
       title: 'remera 1',
       price: 2000,
       stock: 10,
@@ -9,7 +9,7 @@ export const products = [
     },
 
     {
-      id: 2,
+      
       title: ' remera 2',
       price: 2500,
       stock: 10,
@@ -18,7 +18,7 @@ export const products = [
     },
 
     {
-      id: 3,
+      
       title: ' remera 3',
       price: 2500,
       stock: 10,
@@ -27,7 +27,7 @@ export const products = [
     },
 
     {
-      id: 4,
+     
       title: ' remera 4',
       price: 1800,
       stock: 10,
@@ -36,7 +36,7 @@ export const products = [
     },
 
     {
-      id: 5,
+      
       title: ' remera 5',
       price: 1500,
       stock: 10,
@@ -47,7 +47,7 @@ export const products = [
 
     {
 
-    id: 6,
+    
     title: 'Longboard',
     price: 70000,
     stock: 5,
@@ -56,7 +56,7 @@ export const products = [
     },
 
   {
-    id: 7,
+    
     title: 'funboard',
     price: 80000,
     stock: 5,
@@ -65,7 +65,7 @@ export const products = [
   },
 
   {
-    id: 8,
+    
     title: 'shortboard',
     price: 90000,
     stock: 5,
@@ -76,7 +76,7 @@ export const products = [
     
 
 
-  { id: 9,
+  { 
     title: 'billetera cadena',
     price: 800,
     stock: 10,
@@ -85,7 +85,7 @@ export const products = [
   },
 
   {
-    id: 10,
+    
     title: 'billetera ',
     price: 500,
     stock: 10,
@@ -94,7 +94,7 @@ export const products = [
   },
 
   {
-    id: 11,
+    
     title: 'billetera amarilla',
     price: 650,
     stock: 10,
@@ -105,7 +105,7 @@ export const products = [
     
 
   
-  { id: 12,
+  { 
     title: 'bermuda playa',
     price: 4000,
     stock: 8,
@@ -114,7 +114,7 @@ export const products = [
   },
 
   {
-    id: 13,
+    
     title: 'bermuda jean oscuro',
     price: 3500,
     stock: 8,
@@ -123,7 +123,7 @@ export const products = [
   },
 
   {
-    id: 14,
+    
     title: ' bermuda jean clara ',
     price: 4500,
     stock: 10,
@@ -134,7 +134,7 @@ export const products = [
     
 
    
-  { id: 15,
+  { 
     title: 'gorra blanca',
     price: 900,
     stock: 10,
@@ -143,7 +143,7 @@ export const products = [
   },
 
   {
-    id: 16,
+    
     title: 'gorra azul/blanco',
     price: 900,
     stock: 10,
@@ -152,7 +152,7 @@ export const products = [
   },
 
   {
-    id: 17,
+   
     title: 'gorra gris',
     price: 900,
     stock: 10,
@@ -160,9 +160,16 @@ export const products = [
     img: 'https://res.cloudinary.com/dklrdfegw/image/upload/v1667419144/cap2_ihegd2.jpg'
   },
 
-  
-
-
-
-
 ]
+
+
+// export const getProducts = (categoryName) =>{
+//   return new Promise ((res, rej)=> {
+//     const prodFiltrados = products.filter(
+//       (prod) => prod.category === categoryName
+//     );
+//     const ref = categoryName ? prodFiltrados : products;
+//     setTimeout(()=> {res(ref);
+//     }, 500);
+//   })
+// }

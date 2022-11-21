@@ -15,7 +15,7 @@ nav{
   background-color: white;
   box-shadow: 0px 0px 3px 0.2px #cccccc91;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding: 15px;
   align-items: center;
 
@@ -23,8 +23,8 @@ nav{
 
 ul{
   display: flex;
-  
   list-style: none;
+  align-items: center;
 }
 
 li{
@@ -35,21 +35,27 @@ main{
   background-color: lightgrey;
   box-shadow: 0px 0px 3px 0.2px #cccccc91;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding: 15px;
   align-items: center;
   
 }
 
+.carrito{
+ margin-left: 20%;
+}
+
 
 .item-list{
   display: flex;
+  justify-content: center;
   width: 100%;
   flex-wrap: wrap;
 }
 
 .item {
-  margin: 1rem;
+  /*margin: 1rem;*/
+  margin: 6px 30px 6px 30px;
   border-radius: 8px;
   padding: 6px;
   transition: all 0.2s ease-in-out;
@@ -102,18 +108,39 @@ main{
 }
 
 .links{
-  
-  text-decoration: none;
+  text-decoration: solid;
   padding: 4px;
   border-radius: 4px;
-  margin-right: 5px;
-  margin-left: 5px;
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+.titulo1{
+  padding-top: 15px;
+  
+}
+
+.titulo2{
+  font-family: fantasy;
+  font-size:xx-large;
+  padding-left: 15px;
+
 }
 
 
+.sale{
+  padding: 4px;
+  border-radius: 4px;
+  margin-right: 50px;
+  margin-left: 50px;
+  text-decoration: underline;
+  font-size: 25px;
+}
 
 .container {
   margin: 30px;
+  display: flex;
+  align-items: center;
 }
 
 footer {
@@ -123,12 +150,16 @@ footer {
   justify-content: space-between;
   padding: 15px;
   align-items: center;
-  color: white;
+  color: black;
+  position: static;
 }
 
 .saludo{
-  display: flex;
-  justify-content: center;
+  font-size: 25px;
+  line-height: 1.8em;
+  margin-bottom: 25px;
+  margin-top: 25px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .counter  {
