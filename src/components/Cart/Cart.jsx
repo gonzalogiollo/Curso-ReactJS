@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 
 const Cart = () => {
 
-    // si quiero pintar los productos llamo al estado 'cart' del contexto que esta en cartContext
-    const {cart, deleteAll, deleteOne, totalPrecio} = useContext(CartContext) // recordar que cart va ser un array, por ende hay que mapear los productos
+    
+    const {cart, deleteAll, deleteOne, totalPrecio} = useContext(CartContext) 
     if(cart.length === 0) return <h1>Aún no hay productos, volver al <Link to='/'>Inicio</Link></h1>
     return (
         <div>
