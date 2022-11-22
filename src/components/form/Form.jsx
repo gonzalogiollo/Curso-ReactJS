@@ -90,13 +90,13 @@ const Form = () => {
 
   return (
     <div style={{minHeight: '70vh' , display:'flex', justifyContent:'center', alignItems:'center'}}>
-        <form action="" onSubmit={enviarDatos}>
-            <input type="text" placeholder="Nombre" name="nombre" onChange={handleName} value={name}/> 
-            <input type="text" placeholder="Apellido" name="apellido" onChange={handleLastName} value={lastname}/>
-            <input type="text" placeholder="Telefono" name="Telefono" onChange={handleTelefono} value={telefono}/> 
-            <input type="text" placeholder="Dirección" name="Dirección" onChange={handleDireccion} value={direccion}/>
-            <input type="text" placeholder="E-mail" name="E-mail" onChange={handleEmail} value={Email}/>
-            <input type="text" placeholder="Re ingrese su E-mail" name="E-mail" onChange={handleEmail2} value={Email2}/>
+        <form className='form' action="" onSubmit={enviarDatos}>
+            <input type="text" placeholder="  Nombre" name="nombre" onChange={handleName} value={name}/> 
+            <input type="text" placeholder="  Apellido" name="apellido" onChange={handleLastName} value={lastname}/>
+            <input type="text" placeholder="  Telefono" name="Telefono" onChange={handleTelefono} value={telefono}/> 
+            <input type="text" placeholder="  Dirección" name="Dirección" onChange={handleDireccion} value={direccion}/>
+            <input type="text" placeholder="  E-mail" name="E-mail" onChange={handleEmail} value={Email}/>
+            <input type="text" placeholder="  Re ingrese su E-mail" name="E-mail" onChange={handleEmail2} value={Email2}/>
             <button disabled={Email !== Email2}>Enviar</button>
         </form>
     </div>
