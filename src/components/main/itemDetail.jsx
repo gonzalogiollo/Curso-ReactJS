@@ -30,7 +30,7 @@ const ItemDetail = ({product}) => {
         <h3>$ {product.price} .-</h3>
 
         {show ?(
-          <Contador stock={10} resta={0}  onAdd= {onAdd} initial={cantidad}/>
+          <Contador stock={product.stock} resta={0}  onAdd= {onAdd} initial={cantidad}/>
           ):(
           <Link to='/cart'>Ir al carrito</Link>
         )}

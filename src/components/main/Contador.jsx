@@ -21,7 +21,7 @@ const Contador = ({stock, resta, onAdd, initial = 1}) => {
     }
 
     const reset = () =>{
-        setCount(0);
+        setCount(1);
 
     }
 
@@ -46,7 +46,7 @@ const Contador = ({stock, resta, onAdd, initial = 1}) => {
         
         <div>
           
-         <button className="add" onClick={(agregar)}> 
+         <button disabled= {count === 0} className="add" onClick={(agregar)}> 
            Agregar al carrito
          </button>
 
