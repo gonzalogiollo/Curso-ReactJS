@@ -1,53 +1,63 @@
 import React, { useEffect, useState }  from 'react'
-import { products } from "../../mock/producto";
-import ItemDetail from './itemDetail';
-import { useParams } from 'react-router-dom'
+import ItemDetail from './ItemDetail';
+import { useParams } from 'react-router-dom';
+import { doc, getDoc } from 'firebase/firestore';
+import {collectionProd} from '../../Services/firebaseConfig'
+import PacmanLoader from "react-spinners/PacmanLoader";
+
 const ItemDetailContainer = () => {
 
     const [product, setProduct] = useState({});
-   
+    const [loading, setLoading] = useState(true);
     const {idProd} = useParams();
     useEffect(() =>{
-  
-      const getProduct = () => {
 
-        
-  
-        return new Promise ((res) => {
-          
-          const product = products.find((prod) => prod.id === +idProd);
-          
-          setTimeout(()=>{
+      const ref = doc(collectionProd, idProd);
 
-            res(product);
-  
-          }, 500);
-          
-        });
-        
-        
-      };
-    
-    
-      getProduct()
-       .then((res) =>{
-        //console.log ('res', res);
-        setProduct(res);
-    
-       })
-        .catch((error)=>{
-        console.log('rej',error);
-        });
+      getDoc(ref)
+          .then((res) => {
+              setProduct({
+                  id: res.id,
+                  ...res.data(),
+              });
+          })
+          .catch((error) => {
+              console.log(error);
+          })
+          .finally(() => {
+              setLoading(false);
+      });
   
     },[idProd]);
-  return (
+
+
+   
+    if (loading){
+      return (
+        <div className="detail-container">
+          <PacmanLoader size={30}/>
+
+        </div>
+      )
+
+    }
+
+    
+  
+
+  return ( 
     <div>
-        <div  className="detail-container">
-       <ItemDetail key={product.id} product={product}/>
+      <div  className="detail-container">
+        {
+          <ItemDetail key={product.id} product={product}/>
+        }
+        
       </div>
         
     </div>
   )
+
+  
 }
 
 export default ItemDetailContainer

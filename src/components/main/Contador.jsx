@@ -1,12 +1,12 @@
 import React from 'react'
 import { useState } from 'react';
 
-const Contador = ({stock, resta, onAdd}) => {
+const Contador = ({stock, resta, onAdd, initial = 1}) => {
 
-    const [count, setCount] = useState(0)
-    //let x = 0;
+    const [count, setCount] = useState(initial)
+   
     const sumar = () => {
-        //se paso la cantidad de stock por prop y se hace la validacion para no seguir sumando mas de 10 productos
+        
         if(count < stock) {
           setCount(count + 1);
         };
@@ -25,6 +25,7 @@ const Contador = ({stock, resta, onAdd}) => {
 
     }
 
+  
     const agregar = () => {
       onAdd(count);
   };
@@ -32,16 +33,28 @@ const Contador = ({stock, resta, onAdd}) => {
   return (
     <div className='counter'>
         <section>
-          <button className='button' disabled= {count === stock} onClick={sumar}>+</button>
-          <p>{count}</p> 
-          <button className='button' disabled= {count === resta} onClick={restar}>-</button>
-          <button className='button' onClick={reset}>volver a 0</button>
+         <p>{count}</p> 
+          <div>
+            <button  disabled= {count === stock} onClick={sumar}>+</button>
+            <button  disabled= {count === resta} onClick={restar}>-</button>
+            <button  onClick={reset}>volver a 0</button>
+          </div>
+          
         </section>
+       
+          
+        
+        <div>
+          
+         <button className="add" onClick={(agregar)}> 
+           Agregar al carrito
+         </button>
+
+
+        </div>
         
 
-        <button className="add" onClick={agregar}>
-                    Agregar al carrito
-                </button>
+        
     </div>
   )
 }
